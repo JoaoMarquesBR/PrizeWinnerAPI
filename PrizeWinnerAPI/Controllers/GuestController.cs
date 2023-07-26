@@ -1,4 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using PrizeWinner.Application.Interface.IRepository;
+using PrizeWinner.Contracts.Records;
+using PrizeWinnerAPI.Domain;
 using PrizeWinnerAPI.DTO;
 using PrizeWinnerAPI.Models;
 using PrizeWinnerAPI.Repositories;
@@ -9,33 +12,33 @@ namespace PrizeWinnerAPI.Controllers
     [Route("/thefactoryAPI")]
     public class GuestController : ControllerBase
     {
-        private readonly GuestRepository _guestRepository;
+        private readonly IGuestService<Guest> _guestService;
 
-        public GuestController(GuestRepository guestRepo)
-        {
-            _guestRepository = guestRepo;
+        public GuestController(IGuestService<Guest>guestService) {
+            _guestService = guestService;
         }
 
-        [HttpGet("GetAll")]
-        public async Task<List<Guest>> getAll()
-        {
-            return await _guestRepository.GetAll();
-        }
+        //[HttpGet("GetAll")]
+        //public async Task<List<Guest>> getAll()
+        //{
+        //    return await _guestRepository.GetAll();
+        //}
 
-         [HttpGet("GetRandom")]
-        public async Task<Guest> GetRandom()
-        {
-            return await _guestRepository.GetRandom();
-        }
+        // [HttpGet("GetRandom")]
+        //public async Task<Guest> GetRandom()
+        //{
+        //    return await _guestRepository.GetRandom();
+        //}
 
         [HttpPost("AddGuest")]
-        public async Task Add(GuestDTO dto)
+        public async Task Add(GuestContract req)
         {
             Guest guest = new Guest();
-            guest.UserEmail = dto.UserEmail;
-            guest.FirstName = dto.FirstName;
+            guest.UserEmail = req.userEmail;
+            guest.FirstName = req.firstName;
+            guest.PromotionGroupId = req.promotionGroupID;
 
-            await _guestRepository.AddGuest(guest);
+            await _guestService.Add(guest);
         }
 
     }

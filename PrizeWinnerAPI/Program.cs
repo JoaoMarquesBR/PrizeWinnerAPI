@@ -1,5 +1,8 @@
 
 using Microsoft.EntityFrameworkCore;
+using PrizeWinner.Application.Interface.IRepository;
+using PrizeWinner.Application.Services;
+using PrizeWinnerAPI.Domain;
 using PrizeWinnerAPI.Models;
 using PrizeWinnerAPI.Repositories;
 
@@ -17,11 +20,21 @@ namespace PrizeWinnerAPI
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
-            builder.Services.AddScoped<GuestRepository>();
-
 
             var connectionString = builder.Configuration.GetConnectionString("AWS_Server");
-            builder.Services.AddDbContext<AppDbContext>(c => c.UseSqlServer(connectionString));
+            builder.Services.AddDbContext<TheFactoryDevContext>(c => c.UseSqlServer(connectionString));
+
+            builder.Services.AddScoped<IPromotionGroupRepository, PromotionGroupRepository>();
+            builder.Services.AddScoped<IPromotionGroupService, PromotionGroupService>();
+
+
+            builder.Services.AddScoped<IGuestService<Guest>, GuestService>();
+            builder.Services.AddScoped<IGuestRepository<Guest>, GuestRepository>();
+
+            //POR QUE O REPOSITORY TA DANDO ERRO PRA SER INICIADO? MEU DEUS!!!!!!!!!!!!!!
+            builder.Services.AddScoped<IItemService<Item>, ItemService>();
+            builder.Services.AddScoped<IItemRepository<Item>, ItemRepository>();
+
 
 
             var app = builder.Build();
