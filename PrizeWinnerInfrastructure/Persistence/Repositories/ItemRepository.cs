@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using PrizeWinner.Application.Interface.IRepository;
-using PrizeWinnerAPI.Domain;
-using PrizeWinnerAPI.Models;
+using PrizeWinner.Domain.Entities;
 
 namespace PrizeWinnerAPI.Repositories
 {

@@ -7,11 +7,11 @@ namespace PrizeWinnerAPI.Controllers
 {
     [ApiController]
     [Route("/ItemRoute")]
-    public class ItemController : ControllerBase
+    public class ItemGroupController : ControllerBase
     {
         private readonly IItemService<Item> _itemService;
 
-        public ItemController(IItemService<Item> itemService)
+        public ItemGroupController(IItemService<Item> itemService)
         {
             _itemService = itemService;
         }

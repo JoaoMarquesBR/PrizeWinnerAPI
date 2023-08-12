@@ -1,19 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 
-namespace PrizeWinnerAPI.Domain;
+namespace PrizeWinner.Domain.Entities;
 
-[Table("Guest")]
 public partial class Guest
 {
-    public short GuestId { get; set; }
+    public int GuestId { get; set; }
 
-    public int PromotionGroupId { get; set; }
+    public int? GroupId { get; set; }
 
     public string? UserEmail { get; set; }
 
     public string? FirstName { get; set; }
 
-    public virtual PromotionGroup PromotionGroup { get; set; } = null!;
+    public string? LastName { get; set; }
+
+    public DateTime? SignedInDate { get; set; }
+
+    public DateTime? ExpiringDate { get; set; }
 }

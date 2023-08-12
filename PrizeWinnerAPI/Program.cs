@@ -2,8 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using PrizeWinner.Application.Interface.IRepository;
 using PrizeWinner.Application.Services;
-using PrizeWinnerAPI.Domain;
-using PrizeWinnerAPI.Models;
+using PrizeWinner.Domain.Entities;
 using PrizeWinnerAPI.Repositories;
 
 namespace PrizeWinnerAPI

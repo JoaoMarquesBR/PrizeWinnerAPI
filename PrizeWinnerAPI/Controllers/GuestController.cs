@@ -1,10 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PrizeWinner.Application.Interface.IRepository;
 using PrizeWinner.Contracts.Records;
-using PrizeWinnerAPI.Domain;
-using PrizeWinnerAPI.DTO;
-using PrizeWinnerAPI.Models;
-using PrizeWinnerAPI.Repositories;
+using PrizeWinner.Domain.Entities;
 
 namespace PrizeWinnerAPI.Controllers
 {
@@ -36,7 +33,7 @@ namespace PrizeWinnerAPI.Controllers
             Guest guest = new Guest();
             guest.UserEmail = req.userEmail;
             guest.FirstName = req.firstName;
-            guest.PromotionGroupId = req.promotionGroupID;
+            //guest.GroupId = req.promotionGroupID;
 
             await _guestService.Add(guest);
         }

@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using PrizeWinner.Application.Interface.IRepository;
 using PrizeWinner.Contracts.Records;
-using PrizeWinnerAPI.Domain;
+using PrizeWinner.Domain.Entities;
 
 namespace PrizeWinnerAPI.Controllers
 {

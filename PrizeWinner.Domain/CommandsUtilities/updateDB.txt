@@ -1,0 +1,1 @@
+﻿dotnet ef dbcontext scaffold "Server=thefactorylondon-db.cjhy495rnkkn.us-west-2.rds.amazonaws.com;Database=TheFactoryDev;User Id=admin;Password=TheFactory2020;Encrypt=False;" Microsoft.EntityFrameworkCore.SqlServer -o Entities --context TheFactoryDevContext --force

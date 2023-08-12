@@ -1,17 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 
-namespace PrizeWinnerAPI.Domain;
+namespace PrizeWinner.Domain.Entities;
 
-[Table("Item")]
 public partial class Item
 {
     public int ItemId { get; set; }
 
-    public string? Name { get; set; }
+    public string Name { get; set; } = null!;
 
-    public decimal? Price { get; set; }
+    public decimal Price { get; set; }
 
-    public virtual ICollection<ItemPromotionGroup> ItemPromotionGroups { get; set; } = new List<ItemPromotionGroup>();
+    public virtual ICollection<ItemGroup> ItemGroups { get; set; } = new List<ItemGroup>();
 }

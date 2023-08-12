@@ -1,11 +1,8 @@
-﻿using PrizeWinnerAPI.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 
-namespace PrizeWinnerAPI.Domain;
+namespace PrizeWinner.Domain.Entities;
 
-[Table("PromotionGroup")]
 public partial class PromotionGroup
 {
     public int PromotionGroupId { get; set; }
@@ -14,7 +11,5 @@ public partial class PromotionGroup
 
     public DateTime? CreatedDate { get; set; }
 
-    public virtual ICollection<Guest> Guests { get; set; } = new List<Guest>();
-
-    public virtual ICollection<ItemPromotionGroup> ItemPromotionGroups { get; set; } = new List<ItemPromotionGroup>();
+    public virtual ICollection<ItemGroup> ItemGroups { get; set; } = new List<ItemGroup>();
 }

@@ -1,6 +1,5 @@
 ﻿using PrizeWinner.Application.Interface.IRepository;
-using PrizeWinnerAPI.Domain;
-using PrizeWinnerAPI.Models;
+using PrizeWinner.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;

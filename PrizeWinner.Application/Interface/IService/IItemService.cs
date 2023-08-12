@@ -1,4 +1,4 @@
-﻿using PrizeWinnerAPI.Domain;
+﻿using PrizeWinner.Domain.Entities;
 
 
 namespace PrizeWinner.Application.Interface.IRepository
