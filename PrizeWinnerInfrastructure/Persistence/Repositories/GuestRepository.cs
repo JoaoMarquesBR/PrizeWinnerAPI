@@ -56,7 +56,10 @@ namespace PrizeWinnerAPI.Repositories
             return await _appDbContext.Guests.ToListAsync();
         }
 
-      
+        public async Task<IEnumerable<Guest>> GetGuestsByGroupID(int groupID)
+        {
+            return await _appDbContext.Guests.Where(x=> x.GroupId == groupID).ToListAsync();
+        }
     }
 
 }

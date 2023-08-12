@@ -6,5 +6,5 @@ using System.Threading.Tasks;
 
 namespace PrizeWinner.Contracts.Records
 {
-    public record GuestContract(string userEmail,string firstName,string lastName,int promotionGroupID);
+    public record ItemGroupContract(int ItemID, int PromotionGroupID);
 }

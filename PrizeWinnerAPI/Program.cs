@@ -32,7 +32,11 @@ namespace PrizeWinnerAPI
 
             //POR QUE O REPOSITORY TA DANDO ERRO PRA SER INICIADO? MEU DEUS!!!!!!!!!!!!!!
             builder.Services.AddScoped<IItemService<Item>, ItemService>();
-            builder.Services.AddScoped<IItemRepository<Item>, ItemRepository>();
+            builder.Services.AddScoped<IItemRepository<Item>, IItemRepository>();
+
+
+            builder.Services.AddScoped<IItemGroupRepository<ItemGroup>, ITemGroupRepository>();
+            builder.Services.AddScoped<IItemGroupService<ItemGroup>, ItemGroupService>();
 
 
 

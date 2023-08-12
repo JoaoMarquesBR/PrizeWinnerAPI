@@ -31,5 +31,10 @@ namespace PrizeWinner.Application.Services
         {
             return await _guestRepo.GetById(id);
         }
+
+        public async Task<IEnumerable<Guest>> GetGuestsByGroupID(int groupID)
+        {
+            return await _guestRepo.GetGuestsByGroupID(groupID);
+        }
     }
 }

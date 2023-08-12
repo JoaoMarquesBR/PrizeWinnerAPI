@@ -7,7 +7,7 @@ using PrizeWinner.Domain.Entities;
 namespace PrizeWinnerAPI.Controllers
 {
     [ApiController]
-    [Route("PromotionGroup/thefactoryAPI")]
+    [Route("Group")]
     public class GroupController : ControllerBase
     {
         private readonly IPromotionGroupService _group;

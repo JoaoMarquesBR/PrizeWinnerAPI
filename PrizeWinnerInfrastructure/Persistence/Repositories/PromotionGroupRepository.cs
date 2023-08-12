@@ -30,6 +30,7 @@ namespace PrizeWinnerAPI.Repositories
         {
             return await _appDbContext.PromotionGroups.ToListAsync();
         }
+
     }
 
 }

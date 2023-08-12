@@ -6,7 +6,7 @@ using PrizeWinner.Domain.Entities;
 namespace PrizeWinnerAPI.Controllers
 {
     [ApiController]
-    [Route("/thefactoryAPI")]
+    [Route("/Guest")]
     public class GuestController : ControllerBase
     {
         private readonly IGuestService<Guest> _guestService;
@@ -15,25 +15,33 @@ namespace PrizeWinnerAPI.Controllers
             _guestService = guestService;
         }
 
-        //[HttpGet("GetAll")]
-        //public async Task<List<Guest>> getAll()
+        [HttpGet("GetAll")]
+        public async Task<IEnumerable<Guest>> GetAll()
+        {
+            return await _guestService.GetAll();
+        }
+
+        [HttpGet("GetByGroupID")]
+        public async Task<IEnumerable<Guest>> GetByGroupID(int groupID)
+        {
+            return await _guestService.GetGuestsByGroupID(groupID);
+        }
+
+        //[HttpGet("GetRandom")]
+        //public async Task<IEnumerable<Guest>> GetRandom()
         //{
-        //    return await _guestRepository.GetAll();
+        //    return await _guestService.GetRandom();
         //}
 
-        // [HttpGet("GetRandom")]
-        //public async Task<Guest> GetRandom()
-        //{
-        //    return await _guestRepository.GetRandom();
-        //}
-
-        [HttpPost("AddGuest")]
+        [HttpPost("Add")]
         public async Task Add(GuestContract req)
         {
             Guest guest = new Guest();
             guest.UserEmail = req.userEmail;
             guest.FirstName = req.firstName;
-            //guest.GroupId = req.promotionGroupID;
+            guest.LastName = req.lastName;
+            guest.GroupId = req.promotionGroupID;
+            guest.SignedInDate = DateTime.Now;
 
             await _guestService.Add(guest);
         }

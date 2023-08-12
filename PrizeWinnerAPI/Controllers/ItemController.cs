@@ -6,7 +6,7 @@ using PrizeWinner.Domain.Entities;
 namespace PrizeWinnerAPI.Controllers
 {
     [ApiController]
-    [Route("/ItemRoute")]
+    [Route("/Item")]
     public class ItemController : ControllerBase
     {
         private readonly IItemService<Item> _itemService;
@@ -16,11 +16,11 @@ namespace PrizeWinnerAPI.Controllers
             _itemService = itemService;
         }
 
-        //[HttpGet("GetAll")]
-        //public async Task<List<ItemRepository>> getAll()
-        //{
-        //    //return await _itemRepository.GetAll()/*/*;*/*/
-        //}
+        [HttpGet("GetAll")]
+        public async Task<IEnumerable<Item>> getAll()
+        {
+            return await _itemService.GetAll();
+        }
 
         [HttpPost("Add")]
         public async Task Add(ItemContract request) { 

@@ -1,33 +1,32 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using PrizeWinner.Application.Interface.IRepository;
 using PrizeWinner.Domain.Entities;
-using System.ComponentModel;
 
 namespace PrizeWinnerAPI.Repositories
 {
-    public class IItemRepository : IItemRepository<Item>
+    public class ITemGroupRepository : IItemGroupRepository<ItemGroup>
     {
         private readonly TheFactoryDevContext _appDbContext;
 
-        public IItemRepository(TheFactoryDevContext ctc) { 
+        public ITemGroupRepository(TheFactoryDevContext ctc)
+        {
             _appDbContext = ctc;
         }
 
-        public async Task Add(Item entity)
+        public async Task Add(ItemGroup entity)
         {
             await _appDbContext.AddAsync(entity);
             await _appDbContext.SaveChangesAsync();
         }
 
-        public async Task<IEnumerable<Item>> GetAll()
+        public async Task<IEnumerable<ItemGroup>> GetAll()
         {
-            return await _appDbContext.Items.ToListAsync();
+            return await _appDbContext.ItemGroups.ToListAsync();
         }
 
-        public Task<Item> GetById(object id)
+        public Task<ItemGroup> GetById(object id)
         {
             throw new NotImplementedException();
         }
     }
-
 }
