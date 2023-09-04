@@ -28,5 +28,12 @@ namespace PrizeWinnerAPI.Repositories
         {
             throw new NotImplementedException();
         }
+
+        public async Task<List<ItemGroup>> GetPrizesByGroupId(int groupId)
+        {
+            return await _appDbContext.ItemGroups.
+                Where(x => x.PromotionGroupId == groupId).
+                ToListAsync();
+        }
     }
 }

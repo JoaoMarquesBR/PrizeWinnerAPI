@@ -7,5 +7,7 @@ using System.Threading.Tasks;
 namespace PrizeWinner.Contracts.Records
 {
     public record PromotionGroupContract(
-        string GroupName);
+        string GroupName,
+        DateTime date,
+        List<int>? itemsId);
 }

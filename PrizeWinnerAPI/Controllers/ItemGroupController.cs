@@ -23,6 +23,13 @@ namespace PrizeWinnerAPI.Controllers
             return await _itemGroupService.GetAll();
         }
 
+
+        [HttpGet("GetPrizesByGroupId")]
+        public async Task<IEnumerable<ItemGroup>> GetPrizesByGroupId(int groupId)
+        {
+            return await _itemGroupService.GetPrizesByGroupId(groupId);
+        }
+
         [HttpPost("Add")]
         public async Task Add(ItemGroupContract request) {
 

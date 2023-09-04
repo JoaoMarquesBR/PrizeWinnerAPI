@@ -1,5 +1,6 @@
 
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using PrizeWinner.Application.Interface.IRepository;
 using PrizeWinner.Application.Services;
 using PrizeWinner.Domain.Entities;
@@ -12,6 +13,15 @@ namespace PrizeWinnerAPI
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+            builder.Services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(builder =>
+                {
+                    builder.AllowAnyOrigin()
+                           .AllowAnyMethod()
+                           .AllowAnyHeader();
+                });
+            });
 
             // Add services to the container.
 
@@ -51,6 +61,7 @@ namespace PrizeWinnerAPI
             app.UseAuthorization();
 
             app.MapControllers();
+            app.UseCors();
             app.Run();
         }
     }

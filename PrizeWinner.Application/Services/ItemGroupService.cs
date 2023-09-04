@@ -32,5 +32,10 @@ namespace PrizeWinner.Application.Services
         {
             throw new NotImplementedException();
         }
+
+        public async  Task<List<ItemGroup>> GetPrizesByGroupId(int groupId)
+        {
+            return await _itemGroupRepo.GetPrizesByGroupId(groupId);
+        }
     }
 }

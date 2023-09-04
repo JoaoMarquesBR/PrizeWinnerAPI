@@ -16,7 +16,7 @@ namespace PrizeWinnerAPI.Controllers
             _itemService = itemService;
         }
 
-        [HttpGet("GetAll")]
+        [HttpGet("All")]
         public async Task<IEnumerable<Item>> getAll()
         {
             return await _itemService.GetAll();

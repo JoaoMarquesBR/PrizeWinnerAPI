@@ -24,9 +24,10 @@ namespace PrizeWinnerAPI.Repositories
             return await _appDbContext.Items.ToListAsync();
         }
 
-        public Task<Item> GetById(object id)
+        public async Task<Item> GetById(object id)
         {
-            throw new NotImplementedException();
+            int intValue = (int)id; 
+            return await _appDbContext.Items.FirstOrDefaultAsync(x => x.ItemId == intValue);
         }
     }
 
