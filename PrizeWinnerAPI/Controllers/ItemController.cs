@@ -28,6 +28,7 @@ namespace PrizeWinnerAPI.Controllers
             Item item = new Item();
             item.Name = request.itemName;
             item.Price = request.price;
+            item.Winrate = request.winRate;
 
             await _itemService.Add(item);
         }

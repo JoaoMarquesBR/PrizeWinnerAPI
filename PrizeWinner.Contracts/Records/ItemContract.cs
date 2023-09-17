@@ -6,5 +6,5 @@ using System.Threading.Tasks;
 
 namespace PrizeWinner.Contracts.Records
 {
-    public record ItemContract(string itemName,decimal price);
+    public record ItemContract(string itemName,decimal price,int winRate);
 }

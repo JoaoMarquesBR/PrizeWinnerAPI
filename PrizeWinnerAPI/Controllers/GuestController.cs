@@ -40,7 +40,7 @@ namespace PrizeWinnerAPI.Controllers
             guest.UserEmail = req.userEmail;
             guest.FirstName = req.firstName;
             guest.LastName = req.lastName;
-            guest.GroupId = req.promotionGroupID;
+            guest.PromotionGroupId = req.promotionGroupID;
             guest.SignedInDate = DateTime.Now;
 
             await _guestService.Add(guest);
