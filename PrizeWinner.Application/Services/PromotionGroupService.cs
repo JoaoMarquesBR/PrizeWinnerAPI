@@ -56,6 +56,7 @@ namespace PrizeWinner.Application.Services
             foreach(PromotionGroup group in groupList)
             {
                 GroupResponse GroupAggregation = new();
+                GroupAggregation.PromotionGroupId = group.PromotionGroupId;
                 GroupAggregation.GroupName = group.GroupName;
                 GroupAggregation.CreatedDate = group.CreatedDate;
                 GroupAggregation.itemList = new();
