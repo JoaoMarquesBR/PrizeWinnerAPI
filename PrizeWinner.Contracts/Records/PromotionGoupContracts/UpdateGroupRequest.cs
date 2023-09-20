@@ -9,7 +9,7 @@ namespace PrizeWinner.Contracts.Records.PromotionGoupContracts
     public record UpdateGroupRequest(
         int groupId,
         string GroupName,
-        DateTime date,
+        //DateTime date,
         List<int>? itemsId);
 
 }
