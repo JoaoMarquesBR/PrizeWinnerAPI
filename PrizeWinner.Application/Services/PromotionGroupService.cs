@@ -1,11 +1,7 @@
 ﻿using PrizeWinner.Application.Interface.IRepository;
 using PrizeWinner.Contracts.Records;
+using PrizeWinner.Contracts.Responses;
 using PrizeWinner.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PrizeWinner.Application.Services
 {
@@ -51,9 +47,31 @@ namespace PrizeWinner.Application.Services
             }
         }
 
-        public async Task<IEnumerable<PromotionGroup>> GetAll()
+        public async Task<List<GroupResponse>> GetAll()
         {
-            return await _group.GetAll();
+            IEnumerable<PromotionGroup> groupList = await _group.GetAll();
+
+            List<GroupResponse> groupResponseList = new List<GroupResponse>();
+
+            foreach(PromotionGroup group in groupList)
+            {
+                GroupResponse GroupAggregation = new();
+                GroupAggregation.GroupName = group.GroupName;
+                GroupAggregation.CreatedDate = group.CreatedDate;
+                GroupAggregation.itemList = new();
+
+                List<ItemGroup> itemGroupList =await _itemGroupRepo.GetPrizesByGroupId(group.PromotionGroupId);
+
+                foreach(ItemGroup itemGroupItem in itemGroupList)
+                {
+                    Item item = await _itemRepo.GetById(itemGroupItem.ItemId);
+                    GroupAggregation.itemList.Add(item);
+                }
+
+                groupResponseList.Add(GroupAggregation);
+            }
+
+            return groupResponseList;
         }
     }
 }

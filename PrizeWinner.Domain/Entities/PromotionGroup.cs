@@ -18,4 +18,5 @@ public partial class PromotionGroup
     [Required]
     public DateTime? CreatedDate { get; set; }
 
+    public virtual ICollection<ItemGroup> ItemGroups { get; set; } = new List<ItemGroup>();
 }

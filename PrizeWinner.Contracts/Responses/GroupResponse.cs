@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PrizeWinner.Domain.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,7 +15,7 @@ namespace PrizeWinner.Contracts.Responses
 
         public DateTime? CreatedDate { get; set; }
 
-        public List<int> itemGroups { get; set; }
+        public List<Item> itemList { get; set; }
  
     }
 }

@@ -11,4 +11,8 @@
     <ProjectReference Include="..\PrizeWinner.Domain\PrizeWinner.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Persistence\RepoAggregiation\" />
+  </ItemGroup>
+
 </Project>

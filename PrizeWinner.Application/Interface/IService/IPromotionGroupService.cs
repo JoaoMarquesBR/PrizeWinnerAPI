@@ -1,4 +1,5 @@
 ﻿using PrizeWinner.Contracts.Records;
+using PrizeWinner.Contracts.Responses;
 using PrizeWinner.Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -12,7 +13,7 @@ namespace PrizeWinner.Application.Interface.IRepository
     {
         Task Add(PromotionGroupContract promotionGroup);
             
-        Task<IEnumerable<PromotionGroup>> GetAll();
+        Task<List<GroupResponse>> GetAll();
 
     }
 }

@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using PrizeWinner.Application.Interface.IRepository;
 using PrizeWinner.Contracts.Records;
-using PrizeWinner.Domain.Entities;
+using PrizeWinner.Contracts.Responses;
 
 namespace PrizeWinnerAPI.Controllers
 {
@@ -18,7 +18,7 @@ namespace PrizeWinnerAPI.Controllers
         }
 
         [HttpGet("All")]
-        public async Task<IEnumerable<PromotionGroup>> getAll()
+        public async Task<List<GroupResponse>> getAll()
         {
             return await _group.GetAll();
         }
