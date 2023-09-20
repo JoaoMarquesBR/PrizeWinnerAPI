@@ -10,5 +10,7 @@ namespace PrizeWinner.Application.Interface.IRepository
     public interface IItemGroupRepository<T> : IGenericRepository<T> where T : class
     {
         Task<List<ItemGroup>> GetPrizesByGroupId(int groupId);
+
+        Task Remove(int itemGroupId);
     }
 }

@@ -4,10 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PrizeWinner.Contracts.Records
+namespace PrizeWinner.Contracts.Records.PromotionGoupContracts
 {
-    public record PromotionGroupContract(
+    public record UpdateGroupRequest(
+        int groupId,
         string GroupName,
-        //DateTime date,
+        DateTime date,
         List<int>? itemsId);
+
 }

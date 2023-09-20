@@ -9,5 +9,9 @@ namespace PrizeWinner.Application.Interface.IRepository
 
         Task<IEnumerable<PromotionGroup>> GetAll();
 
+        Task<PromotionGroup?> GetById(int groupId);
+
+        Task Update(PromotionGroup entity);
+
     }
 }

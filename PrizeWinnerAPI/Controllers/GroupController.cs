@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using PrizeWinner.Application.Interface.IRepository;
 using PrizeWinner.Contracts.Records;
+using PrizeWinner.Contracts.Records.PromotionGoupContracts;
 using PrizeWinner.Contracts.Responses;
 
 namespace PrizeWinnerAPI.Controllers
@@ -27,6 +28,15 @@ namespace PrizeWinnerAPI.Controllers
         public  async Task<IActionResult> Add([FromBody] PromotionGroupContract request)
         {
             await _group.Add(request);
+
+            return Ok();
+        }
+
+
+        [HttpPut("Update")]
+        public async Task<IActionResult> UpdateGroup([FromBody] UpdateGroupRequest request)
+        {
+            await _group.Update(request);
 
             return Ok();
         }

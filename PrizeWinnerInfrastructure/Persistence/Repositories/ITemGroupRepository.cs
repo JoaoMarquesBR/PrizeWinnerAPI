@@ -35,5 +35,16 @@ namespace PrizeWinnerAPI.Repositories
                 Where(x => x.PromotionGroupId == groupId).
                 ToListAsync();
         }
+
+        public async Task Remove(int itemGroupId)
+        {
+            ItemGroup itemGroupToRemove = await _appDbContext.ItemGroups.FirstOrDefaultAsync(x => x.ItemGroupId == itemGroupId);
+
+            if (itemGroupToRemove != null)
+            {
+                _appDbContext.ItemGroups.Remove(itemGroupToRemove);
+                await _appDbContext.SaveChangesAsync();
+            }
+        }
     }
 }

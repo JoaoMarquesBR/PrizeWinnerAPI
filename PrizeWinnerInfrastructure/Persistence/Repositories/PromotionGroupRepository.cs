@@ -31,6 +31,16 @@ namespace PrizeWinnerAPI.Repositories
             return await _appDbContext.PromotionGroups.ToListAsync();
         }
 
+        public async Task<PromotionGroup?> GetById(int groupId)
+        {
+            return await _appDbContext.PromotionGroups.FirstOrDefaultAsync(x=>x.PromotionGroupId==groupId);
+        }
+
+        public async Task Update(PromotionGroup entity)
+        {
+            _appDbContext.Entry(entity).State = EntityState.Modified;
+            await _appDbContext.SaveChangesAsync();
+        }
     }
 
 }

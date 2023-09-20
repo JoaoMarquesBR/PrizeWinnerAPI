@@ -15,6 +15,8 @@ namespace PrizeWinner.Contracts.Responses
 
         public DateTime? CreatedDate { get; set; }
 
+        public int Participants { get;set; }
+
         public List<Item> itemList { get; set; }
  
     }
